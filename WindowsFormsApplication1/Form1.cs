@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO.Compression;
 using System.Runtime.Remoting.Messaging;
+using System.Threading;
 
 namespace WindowsFormsApplication1
 {
@@ -214,21 +215,27 @@ namespace WindowsFormsApplication1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            textBox1.Text = ConfigStore.Url;            
+            textBox1.Text = ConfigStore.Url;
+            submissionForm1.ParentForm = this;
+        }
+
+        public void store()
+        {
+	        submissionForm1.store();
+
+	        setBrowserElement();
+
+	        if (GradeInput != null)
+		        GradeInput.SendKeys(CurrentSubmission.value);
+	        if (CommentInput != null)
+		        CommentInput.SendKeys(CurrentSubmission.msg);
+	        next();
+
         }
 
         private void StoreBtn_Click(object sender, EventArgs e)
         {
-           
-            submissionForm1.store();
-
-            setBrowserElement();
-
-            if (GradeInput != null) 
-                GradeInput.SendKeys(CurrentSubmission.value);
-            if (CommentInput != null)
-                CommentInput.SendKeys(CurrentSubmission.msg);
-            next();
+	        store();
         }
     }
 }

@@ -12,7 +12,8 @@ namespace WindowsFormsApplication1
 {
     public partial class SubmissionForm : UserControl
     {
-        public SubmissionForm()
+	    public Form1 ParentForm { get; set; } = null;
+	    public SubmissionForm()
         {
             InitializeComponent();
         }
@@ -30,6 +31,8 @@ namespace WindowsFormsApplication1
                     textBox1.Text = _Submission.initStructure();
                     textBox2.Text = "";
                     textBox3.Text = "";
+
+                    //Text = _Submission.StudentName;
 
                     textBox2.Focus();
 
@@ -102,11 +105,13 @@ namespace WindowsFormsApplication1
         private void button2_Click(object sender, EventArgs e)
         {
             textBox2.Text = "100";
+            ParentForm?.store();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             textBox2.Text = "";
+            ParentForm?.store();
         }
     }
 }

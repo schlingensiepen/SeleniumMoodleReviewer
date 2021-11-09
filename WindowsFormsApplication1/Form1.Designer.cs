@@ -34,8 +34,8 @@
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.StoreBtn = new System.Windows.Forms.Button();
-			this.panel1 = new System.Windows.Forms.Panel();
 			this.submissionForm1 = new WindowsFormsApplication1.SubmissionForm();
+			this.panel1 = new System.Windows.Forms.Panel();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.tableLayoutPanel2.SuspendLayout();
 			this.SuspendLayout();
@@ -125,6 +125,16 @@
 			this.StoreBtn.UseVisualStyleBackColor = true;
 			this.StoreBtn.Click += new System.EventHandler(this.StoreBtn_Click);
 			// 
+			// submissionForm1
+			// 
+			this.submissionForm1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.submissionForm1.Location = new System.Drawing.Point(3, 108);
+			this.submissionForm1.Name = "submissionForm1";
+			this.submissionForm1.ParentForm = null;
+			this.submissionForm1.Size = new System.Drawing.Size(1918, 414);
+			this.submissionForm1.Submission = null;
+			this.submissionForm1.TabIndex = 1;
+			// 
 			// panel1
 			// 
 			this.panel1.AutoScroll = true;
@@ -133,15 +143,6 @@
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(1918, 519);
 			this.panel1.TabIndex = 2;
-			// 
-			// submissionForm1
-			// 
-			this.submissionForm1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.submissionForm1.Location = new System.Drawing.Point(3, 108);
-			this.submissionForm1.Name = "submissionForm1";
-			this.submissionForm1.Size = new System.Drawing.Size(1918, 414);
-			this.submissionForm1.Submission = null;
-			this.submissionForm1.TabIndex = 1;
 			// 
 			// Form1
 			// 
