@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using System.IO.Compression;
 using System.Runtime.Remoting.Messaging;
 using System.Threading;
+using Keys = OpenQA.Selenium.Keys;
 
 namespace WindowsFormsApplication1
 {
@@ -66,7 +67,7 @@ namespace WindowsFormsApplication1
                 CommentInput = null;
 
                 Elements = Driver.FindElements(By.XPath(xpath)).ToArray();
-                if (Elements.Length != 1)
+                if (Elements.Length > 2)
                 {
                     Console.WriteLine("Found " + Elements.Length + " elements, returning.");
                     return false;
@@ -226,11 +227,20 @@ namespace WindowsFormsApplication1
 	        setBrowserElement();
 
 	        if (GradeInput != null)
+	        {
+		        GradeInput.SendKeys(Keys.Control + "a");
+                GradeInput.SendKeys(Keys.Delete);
 		        GradeInput.SendKeys(CurrentSubmission.value);
-	        if (CommentInput != null)
-		        CommentInput.SendKeys(CurrentSubmission.msg);
-	        next();
+	        }
 
+	        if (CommentInput != null)
+	        {
+		        CommentInput.SendKeys(Keys.Control + "a");
+		        CommentInput.SendKeys(Keys.Delete);
+		        CommentInput.SendKeys(CurrentSubmission.msg);
+	        }
+
+	        next();
         }
 
         private void StoreBtn_Click(object sender, EventArgs e)
